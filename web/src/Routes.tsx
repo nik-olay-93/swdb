@@ -17,6 +17,7 @@ const Routes = () => {
     <Router>
       <Set wrap={GroupsMenuLayout}>
         <Route path="/" page={HomePage} name="home" />
+        <Route path="/group/{id}" page={GroupPage} name="group" />
       </Set>
       <Set wrap={ScaffoldLayout} title="SemGrades" titleTo="semGrades" buttonLabel="New SemGrade" buttonTo="newSemGrade">
         <Route path="/sem-grades/new" page={SemGradeNewSemGradePage} name="newSemGrade" />
@@ -47,12 +48,6 @@ const Routes = () => {
         <Route path="/students/{id}/edit" page={StudentEditStudentPage} name="editStudent" />
         <Route path="/students/{id}" page={StudentStudentPage} name="student" />
         <Route path="/students" page={StudentStudentsPage} name="students" />
-      </Set>
-      <Set wrap={ScaffoldLayout} title="Groups" titleTo="groups" buttonLabel="New Group" buttonTo="newGroup">
-        <Route path="/groups/new" page={GroupNewGroupPage} name="newGroup" />
-        <Route path="/groups/{id}/edit" page={GroupEditGroupPage} name="editGroup" />
-        <Route path="/groups/{id}" page={GroupGroupPage} name="group" />
-        <Route path="/groups" page={GroupGroupsPage} name="groups" />
       </Set>
       <Set wrap={ScaffoldLayout} title="Seminars" titleTo="seminars" buttonLabel="New Seminar" buttonTo="newSeminar">
         <Route path="/seminars/new" page={SeminarNewSeminarPage} name="newSeminar" />
