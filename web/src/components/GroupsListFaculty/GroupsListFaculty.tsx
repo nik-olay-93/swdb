@@ -39,7 +39,7 @@ const GroupsListFaculty = ({
         tabIndex={0}
       >
         <span className="text-xl font-semibold">{faculty.name}</span>
-        <span className="text-sm"> - {faculty.description}</span>
+        <span className="text-md"> - {faculty.description}</span>
       </div>
       {selected && (
         <div className="ml-4 mt-2">

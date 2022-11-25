@@ -38,10 +38,13 @@ const GroupsListDepartment = ({
         tabIndex={0}
       >
         <span className="text-md">{department.name}</span>
-        <span className="text-xs"> - {department.description}</span>
+        <span className="text-md font-light"> - {department.description}</span>
       </div>
       {selected && (
         <div className="ml-4 mt-2">
+          {department.groups.length === 0 && (
+            <div className="text-md text-gray-500">Нет групп</div>
+          )}
           {department.groups.map((group) => (
             <div
               key={group.id}
@@ -58,7 +61,10 @@ const GroupsListDepartment = ({
               role="menuitem"
               tabIndex={0}
             >
-              <Link to={routes.group({ id: group.id })} className="text-sm">
+              <Link
+                to={routes.group({ id: group.id })}
+                className="text-md font-semibold"
+              >
                 {group.name}
               </Link>
             </div>

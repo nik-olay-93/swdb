@@ -50,6 +50,8 @@ export const Department: DepartmentRelationResolvers = {
     return db.department.findUnique({ where: { id: root?.id } }).subjects()
   },
   groups: (_obj, { root }) => {
-    return db.department.findUnique({ where: { id: root?.id } }).groups()
+    return db.department.findUnique({ where: { id: root?.id } }).groups({
+      orderBy: { name: 'asc' },
+    })
   },
 }
