@@ -1,0 +1,203 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = "native"
+}
+
+// Define your own datamodels here and run `yarn redwood prisma migrate dev`
+// to create migrations for them and apply to your dev DB.
+// TODO: Please remove the following example:
+enum TaskStatus {
+  Issued
+  Done
+  Asserted
+  AssertedAhead
+  AssertedBehind
+}
+
+enum SemStatus {
+  Attended
+  Worked
+}
+
+model Faculty {
+  id          String       @id @default(cuid())
+  name        String
+  description String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  departments Department[]
+}
+
+model Department {
+  id          String    @id @default(cuid())
+  name        String
+  description String
+  faculty     Faculty   @relation(fields: [facultyId], references: [id])
+  facultyId   String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  subjects    Subject[]
+  groups      Group[]
+}
+
+model AcademicPlan {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  courses     Course[]
+}
+
+model Course {
+  id             String       @id @default(cuid())
+  name           String
+  description    String
+  semester       Int
+  subjects       Subject[]
+  academicPlan   AcademicPlan @relation(fields: [academicPlanId], references: [id])
+  academicPlanId String
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  groups         Group[]
+}
+
+model Subject {
+  id              String           @id @default(cuid())
+  name            String
+  description     String
+  courses         Course[]
+  department      Department       @relation(fields: [departmentId], references: [id])
+  departmentId    String
+  modules         Module[]
+  ControlWorks    ControlWork[]
+  LaboratoryWorks LaboratoryWork[]
+  seminars        Seminar[]
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+}
+
+model Module {
+  id          String        @id @default(cuid())
+  name        String
+  minGrade    Int
+  okGrade     Int
+  goodGrade   Int
+  maxGrade    Int
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  Subject     Subject       @relation(fields: [subjectId], references: [id])
+  subjectId   String
+  ModuleGrade ModuleGrade[]
+}
+
+model ControlWork {
+  id               String             @id @default(cuid())
+  name             String
+  week             Int
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  ControlWorkGrade ControlWorkGrade[]
+  Subject          Subject            @relation(fields: [subjectId], references: [id])
+  subjectId        String
+}
+
+model LaboratoryWork {
+  id                  String                @id @default(cuid())
+  name                String
+  week                Int
+  createdAt           DateTime              @default(now())
+  updatedAt           DateTime              @updatedAt
+  LaboratoryWorkGrade LaboratoryWorkGrade[]
+  Subject             Subject               @relation(fields: [subjectId], references: [id])
+  subjectId           String
+}
+
+model Seminar {
+  id        String     @id @default(cuid())
+  name      String
+  week      Int
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  SemGrade  SemGrade[]
+  Subject   Subject    @relation(fields: [subjectId], references: [id])
+  subjectId String
+}
+
+model Group {
+  id           String     @id @default(cuid())
+  name         String
+  course       Course     @relation(fields: [courseId], references: [id])
+  courseId     String
+  semester     Int
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  department   Department @relation(fields: [departmentId], references: [id])
+  departmentId String
+  students     Student[]
+}
+
+model Student {
+  id                  String                @id @default(cuid())
+  name                String
+  surname             String
+  middlename          String
+  tid                 String
+  createdAt           DateTime              @default(now())
+  updatedAt           DateTime              @updatedAt
+  group               Group                 @relation(fields: [groupId], references: [id])
+  groupId             String
+  ControlWorkGrade    ControlWorkGrade[]
+  LaboratoryWorkGrade LaboratoryWorkGrade[]
+  SemGrade            SemGrade[]
+  ModuleGrade         ModuleGrade[]
+}
+
+model ModuleGrade {
+  id        String   @id @default(cuid())
+  grade     Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  student   Student  @relation(fields: [studentId], references: [id])
+  studentId String
+  module    Module   @relation(fields: [moduleId], references: [id])
+  moduleId  String
+}
+
+model ControlWorkGrade {
+  id        String      @id @default(cuid())
+  grade     TaskStatus?
+  student   Student     @relation(fields: [studentId], references: [id])
+  studentId String
+  cm        ControlWork @relation(fields: [cmId], references: [id])
+  cmId      String
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+model LaboratoryWorkGrade {
+  id        String         @id @default(cuid())
+  grade     TaskStatus?
+  student   Student        @relation(fields: [studentId], references: [id])
+  studentId String
+  lr        LaboratoryWork @relation(fields: [lrId], references: [id])
+  lrId      String
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+}
+
+model SemGrade {
+  id        String     @id @default(cuid())
+  grade     SemStatus?
+  student   Student    @relation(fields: [studentId], references: [id])
+  studentId String
+  seminar   Seminar    @relation(fields: [seminarId], references: [id])
+  seminarId String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}

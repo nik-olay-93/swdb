@@ -1,0 +1,40 @@
+export const schema = gql`
+  type Subject {
+    id: String!
+    name: String!
+    description: String!
+    courses: [Course]!
+    department: Department!
+    departmentId: String!
+    modules: [Module]!
+    ControlWorks: [ControlWork]!
+    LaboratoryWorks: [LaboratoryWork]!
+    seminars: [Seminar]!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+  }
+
+  type Query {
+    subjects: [Subject!]! @requireAuth
+    subject(id: String!): Subject @requireAuth
+  }
+
+  input CreateSubjectInput {
+    name: String!
+    description: String!
+    departmentId: String!
+  }
+
+  input UpdateSubjectInput {
+    name: String
+    description: String
+    departmentId: String
+  }
+
+  type Mutation {
+    createSubject(input: CreateSubjectInput!): Subject! @requireAuth
+    updateSubject(id: String!, input: UpdateSubjectInput!): Subject!
+      @requireAuth
+    deleteSubject(id: String!): Subject! @requireAuth
+  }
+`
