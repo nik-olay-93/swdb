@@ -9,7 +9,7 @@ interface Props {
 const GroupPage = ({ id }: Props) => {
   return (
     <>
-      <MetaTags title="Group" description="Group page" />
+      <MetaTags title="Группа" description="Group page" />
 
       <GroupCell id={id} />
     </>

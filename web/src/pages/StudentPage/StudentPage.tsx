@@ -9,7 +9,7 @@ interface Props {
 const StudentPage = ({ id }: Props) => {
   return (
     <>
-      <MetaTags title="Student" description="Student page" />
+      <MetaTags title="Студент" description="Student page" />
 
       <StudentInfoCell id={id} />
     </>
