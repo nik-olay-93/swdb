@@ -11,3 +11,7 @@
 /**
  * END --- SETUP TAILWINDCSS EDIT
  */
+
+html {
+  overflow-y: scroll;
+}
