@@ -2,7 +2,7 @@ export const schema = gql`
   type Seminar {
     id: String!
     name: String!
-    week: Int!
+    description: String!
     createdAt: DateTime!
     updatedAt: DateTime!
     SemGrade: [SemGrade]!
@@ -17,13 +17,13 @@ export const schema = gql`
 
   input CreateSeminarInput {
     name: String!
-    week: Int!
+    description: String!
     subjectId: String!
   }
 
   input UpdateSeminarInput {
     name: String
-    week: Int
+    description: String
     subjectId: String
   }
 

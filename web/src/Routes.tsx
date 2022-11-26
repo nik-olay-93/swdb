@@ -44,12 +44,6 @@ const Routes = () => {
         <Route path="/module-grades/{id}" page={ModuleGradeModuleGradePage} name="moduleGrade" />
         <Route path="/module-grades" page={ModuleGradeModuleGradesPage} name="moduleGrades" />
       </Set>
-      <Set wrap={ScaffoldLayout} title="Seminars" titleTo="seminars" buttonLabel="New Seminar" buttonTo="newSeminar">
-        <Route path="/seminars/new" page={SeminarNewSeminarPage} name="newSeminar" />
-        <Route path="/seminars/{id}/edit" page={SeminarEditSeminarPage} name="editSeminar" />
-        <Route path="/seminars/{id}" page={SeminarSeminarPage} name="seminar" />
-        <Route path="/seminars" page={SeminarSeminarsPage} name="seminars" />
-      </Set>
       <Set wrap={ScaffoldLayout} title="LaboratoryWorks" titleTo="laboratoryWorks" buttonLabel="New LaboratoryWork" buttonTo="newLaboratoryWork">
         <Route path="/laboratory-works/new" page={LaboratoryWorkNewLaboratoryWorkPage} name="newLaboratoryWork" />
         <Route path="/laboratory-works/{id}/edit" page={LaboratoryWorkEditLaboratoryWorkPage} name="editLaboratoryWork" />

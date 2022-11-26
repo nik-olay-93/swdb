@@ -32,15 +32,15 @@ describe('seminars', () => {
     const result = await createSeminar({
       input: {
         name: 'String',
-        week: 4698939,
-        updatedAt: '2022-11-24T21:18:08.605Z',
+        description: 'String',
+        updatedAt: '2022-11-26T17:55:29.017Z',
         subjectId: scenario.seminar.two.subjectId,
       },
     })
 
     expect(result.name).toEqual('String')
-    expect(result.week).toEqual(4698939)
-    expect(result.updatedAt).toEqual(new Date('2022-11-24T21:18:08.605Z'))
+    expect(result.description).toEqual('String')
+    expect(result.updatedAt).toEqual(new Date('2022-11-26T17:55:29.017Z'))
     expect(result.subjectId).toEqual(scenario.seminar.two.subjectId)
   })
 

@@ -6,23 +6,23 @@ export const standard = defineScenario<Prisma.SeminarCreateArgs>({
     one: {
       data: {
         name: 'String',
-        week: 3627889,
-        updatedAt: '2022-11-24T21:18:08.619Z',
+        description: 'String',
+        updatedAt: '2022-11-26T17:55:29.115Z',
         Subject: {
           create: {
             name: 'String',
             description: 'String',
-            updatedAt: '2022-11-24T21:18:08.619Z',
+            updatedAt: '2022-11-26T17:55:29.115Z',
             department: {
               create: {
                 name: 'String',
                 description: 'String',
-                updatedAt: '2022-11-24T21:18:08.619Z',
+                updatedAt: '2022-11-26T17:55:29.115Z',
                 faculty: {
                   create: {
                     name: 'String',
                     description: 'String',
-                    updatedAt: '2022-11-24T21:18:08.619Z',
+                    updatedAt: '2022-11-26T17:55:29.115Z',
                   },
                 },
               },
@@ -34,23 +34,23 @@ export const standard = defineScenario<Prisma.SeminarCreateArgs>({
     two: {
       data: {
         name: 'String',
-        week: 3175723,
-        updatedAt: '2022-11-24T21:18:08.619Z',
+        description: 'String',
+        updatedAt: '2022-11-26T17:55:29.115Z',
         Subject: {
           create: {
             name: 'String',
             description: 'String',
-            updatedAt: '2022-11-24T21:18:08.619Z',
+            updatedAt: '2022-11-26T17:55:29.115Z',
             department: {
               create: {
                 name: 'String',
                 description: 'String',
-                updatedAt: '2022-11-24T21:18:08.619Z',
+                updatedAt: '2022-11-26T17:55:29.115Z',
                 faculty: {
                   create: {
                     name: 'String',
                     description: 'String',
-                    updatedAt: '2022-11-24T21:18:08.619Z',
+                    updatedAt: '2022-11-26T17:55:29.115Z',
                   },
                 },
               },

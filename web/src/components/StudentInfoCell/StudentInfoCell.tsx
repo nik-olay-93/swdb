@@ -38,7 +38,7 @@ export const QUERY = gql`
             seminars {
               id
               name
-              week
+              description
             }
             ControlWorks {
               id
