@@ -5,6 +5,7 @@ import type {
 
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
+import StudentCMs from '../StudentCMs/StudentCMs'
 import StudentModules from '../StudentModules/StudentModules'
 
 export const QUERY = gql`
@@ -99,11 +100,17 @@ export const Success = ({
 }: CellSuccessProps<FindStudentInfoQuery, FindStudentInfoQueryVariables>) => {
   return (
     <div>
-      <h1>
+      <h1 className="text-2xl font-bold">
         {student.name} {student.surname}, {student.group.name}
       </h1>
-      <h3>{student.group.course.academicPlan.name}</h3>
+      <h3>
+        {student.group.course.academicPlan.name}, {student.group.semester}{' '}
+        Семестр
+      </h3>
+      <h4 className="mt-4 text-lg font-semibold">Модули</h4>
       <StudentModules student={student} />
+      <h4 className="mt-4 text-lg font-semibold">Контрольные мероприятия</h4>
+      <StudentCMs student={student} />
     </div>
   )
 }

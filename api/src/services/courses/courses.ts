@@ -40,7 +40,11 @@ export const deleteCourse: MutationResolvers['deleteCourse'] = ({ id }) => {
 
 export const Course: CourseRelationResolvers = {
   subjects: (_obj, { root }) => {
-    return db.course.findUnique({ where: { id: root?.id } }).subjects()
+    return db.course.findUnique({ where: { id: root?.id } }).subjects({
+      orderBy: {
+        name: 'asc',
+      },
+    })
   },
   academicPlan: (_obj, { root }) => {
     return db.course.findUnique({ where: { id: root?.id } }).academicPlan()
