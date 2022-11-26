@@ -6,26 +6,27 @@ export const standard = defineScenario<Prisma.ModuleCreateArgs>({
     one: {
       data: {
         name: 'String',
-        minGrade: 6766238,
-        okGrade: 5767053,
-        goodGrade: 5322430,
-        maxGrade: 2518363,
-        updatedAt: '2022-11-24T21:17:29.380Z',
+        minGrade: 4200275,
+        okGrade: 3765890,
+        goodGrade: 223262,
+        maxGrade: 9251512,
+        week: 5609224,
+        updatedAt: '2022-11-26T12:42:16.000Z',
         Subject: {
           create: {
             name: 'String',
             description: 'String',
-            updatedAt: '2022-11-24T21:17:29.380Z',
+            updatedAt: '2022-11-26T12:42:16.000Z',
             department: {
               create: {
                 name: 'String',
                 description: 'String',
-                updatedAt: '2022-11-24T21:17:29.380Z',
+                updatedAt: '2022-11-26T12:42:16.000Z',
                 faculty: {
                   create: {
                     name: 'String',
                     description: 'String',
-                    updatedAt: '2022-11-24T21:17:29.380Z',
+                    updatedAt: '2022-11-26T12:42:16.000Z',
                   },
                 },
               },
@@ -37,26 +38,27 @@ export const standard = defineScenario<Prisma.ModuleCreateArgs>({
     two: {
       data: {
         name: 'String',
-        minGrade: 596596,
-        okGrade: 5725409,
-        goodGrade: 5621619,
-        maxGrade: 8128644,
-        updatedAt: '2022-11-24T21:17:29.380Z',
+        minGrade: 9267623,
+        okGrade: 7883109,
+        goodGrade: 7251719,
+        maxGrade: 4768410,
+        week: 4046678,
+        updatedAt: '2022-11-26T12:42:16.000Z',
         Subject: {
           create: {
             name: 'String',
             description: 'String',
-            updatedAt: '2022-11-24T21:17:29.380Z',
+            updatedAt: '2022-11-26T12:42:16.000Z',
             department: {
               create: {
                 name: 'String',
                 description: 'String',
-                updatedAt: '2022-11-24T21:17:29.380Z',
+                updatedAt: '2022-11-26T12:42:16.000Z',
                 faculty: {
                   create: {
                     name: 'String',
                     description: 'String',
-                    updatedAt: '2022-11-24T21:17:29.380Z',
+                    updatedAt: '2022-11-26T12:42:16.000Z',
                   },
                 },
               },

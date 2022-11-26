@@ -7,17 +7,17 @@ export const standard = defineScenario<Prisma.SubjectCreateArgs>({
       data: {
         name: 'String',
         description: 'String',
-        updatedAt: '2022-11-24T21:17:15.561Z',
+        updatedAt: '2022-11-26T12:42:02.011Z',
         department: {
           create: {
             name: 'String',
             description: 'String',
-            updatedAt: '2022-11-24T21:17:15.561Z',
+            updatedAt: '2022-11-26T12:42:02.011Z',
             faculty: {
               create: {
                 name: 'String',
                 description: 'String',
-                updatedAt: '2022-11-24T21:17:15.561Z',
+                updatedAt: '2022-11-26T12:42:02.011Z',
               },
             },
           },
@@ -28,17 +28,17 @@ export const standard = defineScenario<Prisma.SubjectCreateArgs>({
       data: {
         name: 'String',
         description: 'String',
-        updatedAt: '2022-11-24T21:17:15.561Z',
+        updatedAt: '2022-11-26T12:42:02.011Z',
         department: {
           create: {
             name: 'String',
             description: 'String',
-            updatedAt: '2022-11-24T21:17:15.561Z',
+            updatedAt: '2022-11-26T12:42:02.011Z',
             faculty: {
               create: {
                 name: 'String',
                 description: 'String',
-                updatedAt: '2022-11-24T21:17:15.561Z',
+                updatedAt: '2022-11-26T12:42:02.011Z',
               },
             },
           },

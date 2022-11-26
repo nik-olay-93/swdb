@@ -10,6 +10,10 @@ export const schema = gql`
     ControlWorks: [ControlWork]!
     LaboratoryWorks: [LaboratoryWork]!
     seminars: [Seminar]!
+    minGrade: Int!
+    okGrade: Int!
+    goodGrade: Int!
+    maxGrade: Int!
     createdAt: DateTime!
     updatedAt: DateTime!
   }
@@ -23,12 +27,20 @@ export const schema = gql`
     name: String!
     description: String!
     departmentId: String!
+    minGrade: Int!
+    okGrade: Int!
+    goodGrade: Int!
+    maxGrade: Int!
   }
 
   input UpdateSubjectInput {
     name: String
     description: String
     departmentId: String
+    minGrade: Int
+    okGrade: Int
+    goodGrade: Int
+    maxGrade: Int
   }
 
   type Mutation {

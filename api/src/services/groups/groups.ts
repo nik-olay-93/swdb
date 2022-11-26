@@ -46,6 +46,10 @@ export const Group: GroupRelationResolvers = {
     return db.group.findUnique({ where: { id: root?.id } }).department()
   },
   students: (_obj, { root }) => {
-    return db.group.findUnique({ where: { id: root?.id } }).students()
+    return db.group.findUnique({ where: { id: root?.id } }).students({
+      orderBy: {
+        surname: 'asc',
+      },
+    })
   },
 }

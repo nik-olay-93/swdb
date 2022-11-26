@@ -6,6 +6,7 @@ export const schema = gql`
     okGrade: Int!
     goodGrade: Int!
     maxGrade: Int!
+    week: Int!
     createdAt: DateTime!
     updatedAt: DateTime!
     Subject: Subject!
@@ -24,6 +25,7 @@ export const schema = gql`
     okGrade: Int!
     goodGrade: Int!
     maxGrade: Int!
+    week: Int!
     subjectId: String!
   }
 
@@ -33,6 +35,7 @@ export const schema = gql`
     okGrade: Int
     goodGrade: Int
     maxGrade: Int
+    week: Int
     subjectId: String
   }
 

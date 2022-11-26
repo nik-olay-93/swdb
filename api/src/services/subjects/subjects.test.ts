@@ -34,14 +34,14 @@ describe('subjects', () => {
         name: 'String',
         description: 'String',
         departmentId: scenario.subject.two.departmentId,
-        updatedAt: '2022-11-24T21:17:15.548Z',
+        updatedAt: '2022-11-26T12:42:01.953Z',
       },
     })
 
     expect(result.name).toEqual('String')
     expect(result.description).toEqual('String')
     expect(result.departmentId).toEqual(scenario.subject.two.departmentId)
-    expect(result.updatedAt).toEqual(new Date('2022-11-24T21:17:15.548Z'))
+    expect(result.updatedAt).toEqual(new Date('2022-11-26T12:42:01.953Z'))
   })
 
   scenario('updates a subject', async (scenario: StandardScenario) => {

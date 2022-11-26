@@ -32,21 +32,23 @@ describe('modules', () => {
     const result = await createModule({
       input: {
         name: 'String',
-        minGrade: 2077031,
-        okGrade: 4075886,
-        goodGrade: 178875,
-        maxGrade: 5165467,
-        updatedAt: '2022-11-24T21:17:29.366Z',
+        minGrade: 6754835,
+        okGrade: 3662626,
+        goodGrade: 5930945,
+        maxGrade: 9128916,
+        week: 7459326,
+        updatedAt: '2022-11-26T12:42:15.901Z',
         subjectId: scenario.module.two.subjectId,
       },
     })
 
     expect(result.name).toEqual('String')
-    expect(result.minGrade).toEqual(2077031)
-    expect(result.okGrade).toEqual(4075886)
-    expect(result.goodGrade).toEqual(178875)
-    expect(result.maxGrade).toEqual(5165467)
-    expect(result.updatedAt).toEqual(new Date('2022-11-24T21:17:29.366Z'))
+    expect(result.minGrade).toEqual(6754835)
+    expect(result.okGrade).toEqual(3662626)
+    expect(result.goodGrade).toEqual(5930945)
+    expect(result.maxGrade).toEqual(9128916)
+    expect(result.week).toEqual(7459326)
+    expect(result.updatedAt).toEqual(new Date('2022-11-26T12:42:15.901Z'))
     expect(result.subjectId).toEqual(scenario.module.two.subjectId)
   })
 

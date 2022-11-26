@@ -1,5 +1,7 @@
 import { MetaTags } from '@redwoodjs/web'
 
+import GroupCell from 'src/components/GroupCell'
+
 interface Props {
   id: string
 }
@@ -9,7 +11,7 @@ const GroupPage = ({ id }: Props) => {
     <>
       <MetaTags title="Group" description="Group page" />
 
-      <span>Group {id}</span>
+      <GroupCell id={id} />
     </>
   )
 }

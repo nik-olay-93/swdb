@@ -78,6 +78,10 @@ model Subject {
   ControlWorks    ControlWork[]
   LaboratoryWorks LaboratoryWork[]
   seminars        Seminar[]
+  minGrade        Int              @default(0)
+  okGrade         Int              @default(0)
+  goodGrade       Int              @default(0)
+  maxGrade        Int              @default(0)
   createdAt       DateTime         @default(now())
   updatedAt       DateTime         @updatedAt
 }
@@ -89,6 +93,7 @@ model Module {
   okGrade     Int
   goodGrade   Int
   maxGrade    Int
+  week        Int
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
   Subject     Subject       @relation(fields: [subjectId], references: [id])
