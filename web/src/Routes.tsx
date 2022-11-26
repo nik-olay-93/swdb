@@ -18,6 +18,7 @@ const Routes = () => {
       <Set wrap={GroupsMenuLayout}>
         <Route path="/" page={HomePage} name="home" />
         <Route path="/group/{id}" page={GroupPage} name="group" />
+        <Route path="/student/{id}" page={StudentPage} name="student" />
       </Set>
       <Set wrap={ScaffoldLayout} title="SemGrades" titleTo="semGrades" buttonLabel="New SemGrade" buttonTo="newSemGrade">
         <Route path="/sem-grades/new" page={SemGradeNewSemGradePage} name="newSemGrade" />
@@ -42,12 +43,6 @@ const Routes = () => {
         <Route path="/module-grades/{id}/edit" page={ModuleGradeEditModuleGradePage} name="editModuleGrade" />
         <Route path="/module-grades/{id}" page={ModuleGradeModuleGradePage} name="moduleGrade" />
         <Route path="/module-grades" page={ModuleGradeModuleGradesPage} name="moduleGrades" />
-      </Set>
-      <Set wrap={ScaffoldLayout} title="Students" titleTo="students" buttonLabel="New Student" buttonTo="newStudent">
-        <Route path="/students/new" page={StudentNewStudentPage} name="newStudent" />
-        <Route path="/students/{id}/edit" page={StudentEditStudentPage} name="editStudent" />
-        <Route path="/students/{id}" page={StudentStudentPage} name="student" />
-        <Route path="/students" page={StudentStudentsPage} name="students" />
       </Set>
       <Set wrap={ScaffoldLayout} title="Seminars" titleTo="seminars" buttonLabel="New Seminar" buttonTo="newSeminar">
         <Route path="/seminars/new" page={SeminarNewSeminarPage} name="newSeminar" />

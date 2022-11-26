@@ -1,5 +1,7 @@
 import type { FindGroupQuery } from 'types/graphql'
 
+import { Link, routes } from '@redwoodjs/router'
+
 export interface GroupTableProps {
   group: FindGroupQuery['group']
 }
@@ -27,8 +29,10 @@ const GroupTable = ({ group }: GroupTableProps) => {
         {group.students.map((student) => (
           <tr key={student.id} className="odd:bg-gray-100">
             <td className="p-2">
-              {student.surname} {student.name.substring(0, 1)}.{' '}
-              {student.middlename.substring(0, 1)}.
+              <Link to={routes.student({ id: student.id })}>
+                {student.surname} {student.name.substring(0, 1)}.{' '}
+                {student.middlename.substring(0, 1)}.
+              </Link>
             </td>
             {group.course.subjects.map((s) => {
               const _sum = student.ModuleGrade.filter((mg) =>
