@@ -16,7 +16,7 @@ const SubjectCMs = ({ students, subject }: SubjectCMsProps) => {
           <th className="border-r border-gray-500 p-2">ФИО</th>
           {subject.ControlWorks.map((cw) => (
             <th
-              key={module.id}
+              key={cw.id}
               className="border-r border-gray-500 p-2 last:rounded-tr-md last:border-none"
             >
               <div className="flex flex-col">
