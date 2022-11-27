@@ -17,7 +17,10 @@ const Routes = () => {
     <Router>
       <Set wrap={GroupsMenuLayout}>
         <Route path="/" page={HomePage} name="home" />
+
         <Route path="/group/{id}" page={GroupPage} name="group" />
+        <Route path="/group/{groupId}/subject/{subjectId}" page={SubjectPage} name="subject" />
+
         <Route path="/student/{id}" page={StudentPage} name="student" />
       </Set>
       <Set wrap={ScaffoldLayout} title="SemGrades" titleTo="semGrades" buttonLabel="New SemGrade" buttonTo="newSemGrade">
@@ -61,12 +64,6 @@ const Routes = () => {
         <Route path="/modules/{id}/edit" page={ModuleEditModulePage} name="editModule" />
         <Route path="/modules/{id}" page={ModuleModulePage} name="module" />
         <Route path="/modules" page={ModuleModulesPage} name="modules" />
-      </Set>
-      <Set wrap={ScaffoldLayout} title="Subjects" titleTo="subjects" buttonLabel="New Subject" buttonTo="newSubject">
-        <Route path="/subjects/new" page={SubjectNewSubjectPage} name="newSubject" />
-        <Route path="/subjects/{id}/edit" page={SubjectEditSubjectPage} name="editSubject" />
-        <Route path="/subjects/{id}" page={SubjectSubjectPage} name="subject" />
-        <Route path="/subjects" page={SubjectSubjectsPage} name="subjects" />
       </Set>
       <Set wrap={ScaffoldLayout} title="Courses" titleTo="courses" buttonLabel="New Course" buttonTo="newCourse">
         <Route path="/courses/new" page={CourseNewCoursePage} name="newCourse" />

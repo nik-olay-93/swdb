@@ -20,7 +20,14 @@ const GroupTable = ({ group }: GroupTableProps) => {
               className="rotate-180 p-2 text-left"
               key={subject.id}
             >
-              {subject.name}
+              <Link
+                to={routes.subject({
+                  subjectId: subject.id,
+                  groupId: group.id,
+                })}
+              >
+                {subject.name}
+              </Link>
             </th>
           ))}
         </tr>
