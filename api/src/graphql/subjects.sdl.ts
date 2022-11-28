@@ -16,6 +16,7 @@ export const schema = gql`
     maxGrade: Int!
     createdAt: DateTime!
     updatedAt: DateTime!
+    teachers: [TeacherToGroup]!
   }
 
   type Query {

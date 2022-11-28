@@ -10,6 +10,7 @@ export const schema = gql`
     department: Department!
     departmentId: String!
     students: [Student]!
+    teachers: [TeacherToGroup]!
   }
 
   type Query {

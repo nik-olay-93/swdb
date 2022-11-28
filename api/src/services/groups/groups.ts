@@ -52,4 +52,7 @@ export const Group: GroupRelationResolvers = {
       },
     })
   },
+  teachers: (_obj, { root }) => {
+    return db.group.findUnique({ where: { id: root?.id } }).teachers()
+  },
 }

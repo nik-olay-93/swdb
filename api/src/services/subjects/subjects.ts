@@ -59,4 +59,7 @@ export const Subject: SubjectRelationResolvers = {
   seminars: (_obj, { root }) => {
     return db.subject.findUnique({ where: { id: root?.id } }).seminars()
   },
+  teachers: (_obj, { root }) => {
+    return db.subject.findUnique({ where: { id: root?.id } }).teachers()
+  },
 }
