@@ -8,6 +8,7 @@ import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 import SubjectCMs from '../SubjectCms/SubjectCms'
 import SubjectLRs from '../SubjectLrs/SubjectLrs'
 import SubjectModules from '../SubjectModulesInfo/SubjectModulesInfo'
+import SubjectSems from '../SubjectSems/SubjectSems'
 
 export const QUERY = gql`
   query FindSubjectInfoQuery($subjectId: String!, $groupId: String!) {
@@ -25,6 +26,7 @@ export const QUERY = gql`
       seminars {
         id
         name
+        description
       }
       ControlWorks {
         id
@@ -93,6 +95,9 @@ export const Success = ({
 
       <h2 className="my-2 text-3xl font-bold">Лабораторные работы</h2>
       <SubjectLRs students={groupInfo.students} subject={subjectInfo} />
+
+      <h2 className="my-2 text-3xl font-bold">Семинарские занятия</h2>
+      <SubjectSems students={groupInfo.students} subject={subjectInfo} />
     </div>
   )
 }
