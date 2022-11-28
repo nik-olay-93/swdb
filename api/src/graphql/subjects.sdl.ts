@@ -22,6 +22,7 @@ export const schema = gql`
   type Query {
     subjects: [Subject!]! @requireAuth
     subject(id: String!): Subject @requireAuth
+    mySubjects: [Subject!]! @requireAuth(roles: ["TEACHER"])
   }
 
   input CreateSubjectInput {

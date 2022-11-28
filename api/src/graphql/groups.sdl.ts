@@ -16,6 +16,7 @@ export const schema = gql`
   type Query {
     groups: [Group!]! @requireAuth
     group(id: String!): Group @requireAuth
+    myGroups: [Group!]! @requireAuth(roles: ["TEACHER"])
   }
 
   input CreateGroupInput {

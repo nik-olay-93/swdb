@@ -18,7 +18,7 @@ const NavBar = () => {
       title: 'Список групп',
     },
     {
-      route: routes.home(),
+      route: routes.teacher(),
       title: 'Ваши группы',
       role: 'TEACHER',
     },
