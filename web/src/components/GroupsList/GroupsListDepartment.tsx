@@ -46,9 +46,9 @@ const GroupsListDepartment = ({
             <div className="text-md text-gray-500">Нет групп</div>
           )}
           {department.groups.map((group) => (
-            <div
+            <Link
               key={group.id}
-              className={`cursor-pointer rounded-md p-1 text-left transition-colors ${
+              className={`text-md cursor-pointer rounded-md p-1 text-left font-semibold transition-colors ${
                 selectedGroup === group.id ? 'bg-blue-200' : ''
               }`}
               onClick={() => {
@@ -60,14 +60,10 @@ const GroupsListDepartment = ({
               }}
               role="menuitem"
               tabIndex={0}
+              to={routes.group({ id: group.id })}
             >
-              <Link
-                to={routes.group({ id: group.id })}
-                className="text-md font-semibold"
-              >
-                {group.name}
-              </Link>
-            </div>
+              {group.name}
+            </Link>
           ))}
         </div>
       )}

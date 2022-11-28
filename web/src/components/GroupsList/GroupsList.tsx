@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { GroupsListQuery } from 'types/graphql'
 
-import GroupsListFaculty from '../GroupsListFaculty/GroupsListFaculty'
+import GroupsListFaculty from './GroupsListFaculty'
 
 export interface GroupsListProps {
   faculties: GroupsListQuery['faculties']
