@@ -32,7 +32,9 @@ const SubjectModules = ({ students, subject }: SubjectModulesProps) => {
                   </span>
                 </div>
                 <span>{module.name}</span>
-                <span>{module.week}-я неделя</span>
+                <span className="text-sm font-normal">
+                  {module.week}-я неделя
+                </span>
               </div>
             </th>
           ))}

@@ -21,7 +21,7 @@ const SubjectCMs = ({ students, subject }: SubjectCMsProps) => {
             >
               <div className="flex flex-col">
                 <span>{cw.name}</span>
-                <span>{cw.week}-я неделя</span>
+                <span className="text-sm font-normal">{cw.week}-я неделя</span>
               </div>
             </th>
           ))}

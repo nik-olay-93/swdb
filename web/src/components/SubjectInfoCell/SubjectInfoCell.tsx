@@ -14,6 +14,7 @@ export const QUERY = gql`
   query FindSubjectInfoQuery($subjectId: String!, $groupId: String!) {
     subjectInfo: subject(id: $subjectId) {
       id
+      name
       modules {
         id
         name
@@ -86,17 +87,20 @@ export const Success = ({
   groupInfo,
 }: CellSuccessProps<FindSubjectInfoQuery, FindSubjectInfoQueryVariables>) => {
   return (
-    <div>
-      <h2 className="mb-2 text-3xl font-bold">Модули</h2>
+    <div className="flex flex-grow flex-col items-start gap-2">
+      <h1 className="text-3xl font-bold">{subjectInfo.name}</h1>
+      <span className="text-2xl font-semibold">{groupInfo.name}</span>
+
+      <h2 className="text-2xl font-bold">Модули</h2>
       <SubjectModules students={groupInfo.students} subject={subjectInfo} />
 
-      <h2 className="my-2 text-3xl font-bold">Контрольные мероприятия</h2>
+      <h2 className="text-2xl font-bold">Контрольные мероприятия</h2>
       <SubjectCMs students={groupInfo.students} subject={subjectInfo} />
 
-      <h2 className="my-2 text-3xl font-bold">Лабораторные работы</h2>
+      <h2 className="text-2xl font-bold">Лабораторные работы</h2>
       <SubjectLRs students={groupInfo.students} subject={subjectInfo} />
 
-      <h2 className="my-2 text-3xl font-bold">Семинарские занятия</h2>
+      <h2 className="text-2xl font-bold">Семинарские занятия</h2>
       <SubjectSems students={groupInfo.students} subject={subjectInfo} />
     </div>
   )

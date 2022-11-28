@@ -20,7 +20,7 @@ const SubjectSems = ({ students, subject }: SubjectSemsProps) => {
               className="border-r border-gray-500 p-2 last:rounded-tr-md last:border-none"
             >
               <span>{sem.name}</span>
-              <span>{sem.description}</span>
+              <span className="text-sm font-normal">{sem.description}</span>
             </th>
           ))}
         </tr>
