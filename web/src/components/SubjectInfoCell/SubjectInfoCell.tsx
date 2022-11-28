@@ -6,6 +6,7 @@ import type {
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
 import SubjectCMs from '../SubjectCms/SubjectCms'
+import SubjectLRs from '../SubjectLrs/SubjectLrs'
 import SubjectModules from '../SubjectModulesInfo/SubjectModulesInfo'
 
 export const QUERY = gql`
@@ -86,8 +87,12 @@ export const Success = ({
     <div>
       <h2 className="mb-2 text-3xl font-bold">Модули</h2>
       <SubjectModules students={groupInfo.students} subject={subjectInfo} />
+
       <h2 className="my-2 text-3xl font-bold">Контрольные мероприятия</h2>
       <SubjectCMs students={groupInfo.students} subject={subjectInfo} />
+
+      <h2 className="my-2 text-3xl font-bold">Лабораторные работы</h2>
+      <SubjectLRs students={groupInfo.students} subject={subjectInfo} />
     </div>
   )
 }
