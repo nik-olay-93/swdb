@@ -2893,6 +2893,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@iconify-icon/react@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@iconify-icon/react@npm:1.0.1"
+  dependencies:
+    iconify-icon: ^1.0.1
+  peerDependencies:
+    react: ">=16"
+  checksum: a9ac692a522c99ff62b32ad006304c4e5904ecb254fe5dc4962ed3851c64eb45901f0c0a0f76721a0bc7de2dbd53f1f83e6feccacf37f0a20db804ee23cc8c4f
+  languageName: node
+  linkType: hard
+
+"@iconify/types@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@iconify/types@npm:2.0.0"
+  checksum: 65a3be43500c7ccacf360e136d00e1717f050b7b91da644e94370256ac66f582d59212bdb30d00788aab4fc078262e91c95b805d1808d654b72f6d2072a7e4b2
+  languageName: node
+  linkType: hard
+
 "@istanbuljs/load-nyc-config@npm:^1.0.0":
   version: 1.1.0
   resolution: "@istanbuljs/load-nyc-config@npm:1.1.0"
@@ -14106,6 +14124,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"iconify-icon@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "iconify-icon@npm:1.0.1"
+  dependencies:
+    "@iconify/types": ^2.0.0
+  checksum: 7a3313e093eb585f58bede533aef615a6bc22fc25c0d0e4cd1b9e50e5c782f3a96d1e9e6f7bbcac96566dcfc3862607d9702e0f7153acad90e5739989ecd42e0
+  languageName: node
+  linkType: hard
+
 "iconv-lite@npm:0.4.24, iconv-lite@npm:^0.4.24":
   version: 0.4.24
   resolution: "iconv-lite@npm:0.4.24"
@@ -23557,6 +23584,7 @@ __metadata:
   resolution: "web@workspace:web"
   dependencies:
     "@formkit/auto-animate": ^1.0.0-beta.5
+    "@iconify-icon/react": ^1.0.1
     "@redwoodjs/auth": 3.5.0
     "@redwoodjs/forms": 3.5.0
     "@redwoodjs/router": 3.5.0
