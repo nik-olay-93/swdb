@@ -12,6 +12,7 @@ import { Set, Router, Route, Private } from '@redwoodjs/router'
 import GroupsMenuLayout from 'src/layouts/GroupsMenuLayout/GroupsMenuLayout'
 
 import NavBarLayout from './layouts/NavBarLayout/NavBarLayout'
+import TeacherMenuLayout from './layouts/TeacherMenuLayout/TeacherMenuLayout'
 
 const Routes = () => {
   return (
@@ -21,7 +22,7 @@ const Routes = () => {
       <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
       <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
       <Set wrap={NavBarLayout}>
-        <Private unauthenticated="/" roles={'TEACHER'}>
+        <Private unauthenticated="/" roles={'TEACHER'} wrap={TeacherMenuLayout}>
           <Route path="/teacher" page={TeacherPage} name="teacher" />
         </Private>
 

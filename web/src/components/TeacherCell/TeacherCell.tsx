@@ -14,6 +14,10 @@ export const QUERY = gql`
       department {
         id
         name
+        faculty {
+          id
+          name
+        }
       }
     }
   }
