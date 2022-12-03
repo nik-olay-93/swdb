@@ -1,3 +1,5 @@
+import { Toaster } from '@redwoodjs/web/dist/toast'
+
 import NavBar from 'src/components/NavBar/NavBar'
 
 type NavBarLayoutProps = {
@@ -7,6 +9,7 @@ type NavBarLayoutProps = {
 const NavBarLayout = ({ children }: NavBarLayoutProps) => {
   return (
     <>
+      <Toaster />
       <NavBar />
       {children}
     </>

@@ -36,7 +36,7 @@ const LoginPage = () => {
     } else if (response.error) {
       toast.error(response.error)
     } else {
-      toast.success('Welcome back!')
+      toast.success('Добро пожаловать!')
     }
   }
 

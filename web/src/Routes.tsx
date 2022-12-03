@@ -22,7 +22,7 @@ const Routes = () => {
       <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
       <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
       <Set wrap={NavBarLayout}>
-        <Private unauthenticated="/" roles={'TEACHER'} wrap={TeacherMenuLayout}>
+        <Private unauthenticated="home" roles={'TEACHER'} wrap={TeacherMenuLayout}>
           <Route path="/teacher" page={TeacherPage} name="teacher" />
         </Private>
 
