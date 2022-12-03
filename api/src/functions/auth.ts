@@ -131,7 +131,9 @@ export const handler = async (
       fieldMissing:
         'Укажите ${field === "username" ? "имя пользователя" : "пароль"}',
       usernameTaken: 'Имя пользователя ${username} уже занято',
+      flowNotEnabled: 'Регистрация отключена',
     },
+    enabled: false,
   }
 
   const authHandler = new DbAuthHandler(event, context, {
