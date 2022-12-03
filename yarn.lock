@@ -3849,7 +3849,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redwoodjs/api@npm:3.5.0":
+"@redwoodjs/api@npm:3.5.0, @redwoodjs/api@npm:^3.5.0":
   version: 3.5.0
   resolution: "@redwoodjs/api@npm:3.5.0"
   dependencies:
@@ -3890,7 +3890,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redwoodjs/auth@npm:3.5.0":
+"@redwoodjs/auth@npm:3.5.0, @redwoodjs/auth@npm:^3.5.0":
   version: 3.5.0
   resolution: "@redwoodjs/auth@npm:3.5.0"
   dependencies:
@@ -3946,7 +3946,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redwoodjs/core@npm:3.5.0":
+"@redwoodjs/core@npm:^3.5.0":
   version: 3.5.0
   resolution: "@redwoodjs/core@npm:3.5.0"
   dependencies:
@@ -4044,7 +4044,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redwoodjs/forms@npm:3.5.0":
+"@redwoodjs/forms@npm:^3.5.0":
   version: 3.5.0
   resolution: "@redwoodjs/forms@npm:3.5.0"
   dependencies:
@@ -4059,7 +4059,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redwoodjs/graphql-server@npm:3.5.0":
+"@redwoodjs/graphql-server@npm:3.5.0, @redwoodjs/graphql-server@npm:^3.5.0":
   version: 3.5.0
   resolution: "@redwoodjs/graphql-server@npm:3.5.0"
   dependencies:
@@ -4153,7 +4153,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redwoodjs/router@npm:3.5.0":
+"@redwoodjs/router@npm:3.5.0, @redwoodjs/router@npm:^3.5.0":
   version: 3.5.0
   resolution: "@redwoodjs/router@npm:3.5.0"
   dependencies:
@@ -4256,7 +4256,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redwoodjs/web@npm:3.5.0":
+"@redwoodjs/web@npm:3.5.0, @redwoodjs/web@npm:^3.5.0":
   version: 3.5.0
   resolution: "@redwoodjs/web@npm:3.5.0"
   dependencies:
@@ -7468,8 +7468,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "api@workspace:api"
   dependencies:
-    "@redwoodjs/api": 3.5.0
-    "@redwoodjs/graphql-server": 3.5.0
+    "@redwoodjs/api": ^3.5.0
+    "@redwoodjs/graphql-server": ^3.5.0
   languageName: unknown
   linkType: soft
 
@@ -20602,7 +20602,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@redwoodjs/core": 3.5.0
+    "@redwoodjs/core": ^3.5.0
     prettier-plugin-tailwindcss: ^0.1.13
   languageName: unknown
   linkType: soft
@@ -23585,10 +23585,10 @@ __metadata:
   dependencies:
     "@formkit/auto-animate": ^1.0.0-beta.5
     "@iconify-icon/react": ^1.0.1
-    "@redwoodjs/auth": 3.5.0
-    "@redwoodjs/forms": 3.5.0
-    "@redwoodjs/router": 3.5.0
-    "@redwoodjs/web": 3.5.0
+    "@redwoodjs/auth": ^3.5.0
+    "@redwoodjs/forms": ^3.5.0
+    "@redwoodjs/router": ^3.5.0
+    "@redwoodjs/web": ^3.5.0
     autoprefixer: ^10.4.13
     humanize-string: 2.1.0
     postcss: ^8.4.19
