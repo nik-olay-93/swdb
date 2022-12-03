@@ -2,6 +2,8 @@ import { MySubjectsQuery, MySubjectsQueryVariables } from 'types/graphql'
 
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
+import TeacherList from '../TeacherList/TeacherList'
+
 export const QUERY = gql`
   query MySubjectsQuery {
     subjects: mySubjects {
@@ -15,6 +17,14 @@ export const QUERY = gql`
         id
         name
         faculty {
+          id
+          name
+        }
+      }
+      course {
+        id
+        name
+        subjects {
           id
           name
         }
@@ -39,8 +49,7 @@ export const Success = ({
 }: CellSuccessProps<MySubjectsQuery, MySubjectsQueryVariables>) => {
   return (
     <div>
-      <span>{JSON.stringify(subjects)}</span>
-      <span>{JSON.stringify(groups)}</span>
+      <TeacherList groups={groups} subjects={subjects} />
     </div>
   )
 }
