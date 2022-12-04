@@ -61,7 +61,10 @@ const TeacherListSubject = ({
               }}
               role="menuitem"
               tabIndex={0}
-              to={routes.group({ id: group.id })}
+              to={routes.teacherGroup({
+                groupId: group.id,
+                subjectId: subject.id,
+              })}
             >
               {group.name}
             </Link>

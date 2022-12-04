@@ -24,6 +24,7 @@ const Routes = () => {
       <Set wrap={NavBarLayout}>
         <Private unauthenticated="home" roles={'TEACHER'} wrap={TeacherMenuLayout}>
           <Route path="/teacher" page={TeacherPage} name="teacher" />
+          <Route path="/teacher/{groupId}/{subjectId}" page={TeacherGroupPage} name="teacherGroup" />
         </Private>
 
         <Set private unauthenticated="login" wrap={GroupsMenuLayout}>
