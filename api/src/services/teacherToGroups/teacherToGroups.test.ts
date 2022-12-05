@@ -42,14 +42,16 @@ describe('teacherToGroups', () => {
         teacherId: scenario.teacherToGroup.two.teacherId,
         groupId: scenario.teacherToGroup.two.groupId,
         subjectId: scenario.teacherToGroup.two.subjectId,
-        updatedAt: '2022-11-28T13:04:43.010Z',
+        assignment: 'ControlWork',
+        updatedAt: '2022-12-05T16:35:00.249Z',
       },
     })
 
     expect(result.teacherId).toEqual(scenario.teacherToGroup.two.teacherId)
     expect(result.groupId).toEqual(scenario.teacherToGroup.two.groupId)
     expect(result.subjectId).toEqual(scenario.teacherToGroup.two.subjectId)
-    expect(result.updatedAt).toEqual(new Date('2022-11-28T13:04:43.010Z'))
+    expect(result.assignment).toEqual('ControlWork')
+    expect(result.updatedAt).toEqual(new Date('2022-12-05T16:35:00.249Z'))
   })
 
   scenario('updates a teacherToGroup', async (scenario: StandardScenario) => {
@@ -58,10 +60,10 @@ describe('teacherToGroups', () => {
     })) as TeacherToGroup
     const result = await updateTeacherToGroup({
       id: original.id,
-      input: { updatedAt: '2022-11-29T13:04:43.010Z' },
+      input: { assignment: 'Seminar' },
     })
 
-    expect(result.updatedAt).toEqual(new Date('2022-11-29T13:04:43.010Z'))
+    expect(result.assignment).toEqual('Seminar')
   })
 
   scenario('deletes a teacherToGroup', async (scenario: StandardScenario) => {

@@ -7,8 +7,15 @@ export const schema = gql`
     groupId: String!
     subject: Subject!
     subjectId: String!
+    assignment: [TeacherAssignment]!
     createdAt: DateTime!
     updatedAt: DateTime!
+  }
+
+  enum TeacherAssignment {
+    ControlWork
+    LaboratoryWork
+    Seminar
   }
 
   type Query {
@@ -20,12 +27,14 @@ export const schema = gql`
     teacherId: String!
     groupId: String!
     subjectId: String!
+    assignment: [TeacherAssignment]!
   }
 
   input UpdateTeacherToGroupInput {
     teacherId: String
     groupId: String
     subjectId: String
+    assignment: [TeacherAssignment]!
   }
 
   type Mutation {

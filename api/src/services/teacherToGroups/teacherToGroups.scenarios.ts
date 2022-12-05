@@ -5,7 +5,8 @@ export const standard = defineScenario<Prisma.TeacherToGroupCreateArgs>({
   teacherToGroup: {
     one: {
       data: {
-        updatedAt: '2022-11-28T13:04:43.232Z',
+        assignment: 'ControlWork',
+        updatedAt: '2022-12-05T16:35:00.480Z',
         teacher: {
           create: {
             name: 'String',
@@ -13,7 +14,7 @@ export const standard = defineScenario<Prisma.TeacherToGroupCreateArgs>({
             middlename: 'String',
             user: {
               create: {
-                email: 'String4828421',
+                email: 'String2178879',
                 hashedPassword: 'String',
                 salt: 'String',
               },
@@ -23,19 +24,19 @@ export const standard = defineScenario<Prisma.TeacherToGroupCreateArgs>({
         group: {
           create: {
             name: 'String',
-            semester: 4817463,
-            updatedAt: '2022-11-28T13:04:43.232Z',
+            semester: 4538356,
+            updatedAt: '2022-12-05T16:35:00.480Z',
             course: {
               create: {
                 name: 'String',
                 description: 'String',
-                semester: 4939674,
-                updatedAt: '2022-11-28T13:04:43.232Z',
+                semester: 7367991,
+                updatedAt: '2022-12-05T16:35:00.480Z',
                 academicPlan: {
                   create: {
                     name: 'String',
                     description: 'String',
-                    updatedAt: '2022-11-28T13:04:43.232Z',
+                    updatedAt: '2022-12-05T16:35:00.480Z',
                   },
                 },
               },
@@ -44,12 +45,12 @@ export const standard = defineScenario<Prisma.TeacherToGroupCreateArgs>({
               create: {
                 name: 'String',
                 description: 'String',
-                updatedAt: '2022-11-28T13:04:43.232Z',
+                updatedAt: '2022-12-05T16:35:00.480Z',
                 faculty: {
                   create: {
                     name: 'String',
                     description: 'String',
-                    updatedAt: '2022-11-28T13:04:43.232Z',
+                    updatedAt: '2022-12-05T16:35:00.480Z',
                   },
                 },
               },
@@ -60,17 +61,17 @@ export const standard = defineScenario<Prisma.TeacherToGroupCreateArgs>({
           create: {
             name: 'String',
             description: 'String',
-            updatedAt: '2022-11-28T13:04:43.232Z',
+            updatedAt: '2022-12-05T16:35:00.480Z',
             department: {
               create: {
                 name: 'String',
                 description: 'String',
-                updatedAt: '2022-11-28T13:04:43.232Z',
+                updatedAt: '2022-12-05T16:35:00.480Z',
                 faculty: {
                   create: {
                     name: 'String',
                     description: 'String',
-                    updatedAt: '2022-11-28T13:04:43.232Z',
+                    updatedAt: '2022-12-05T16:35:00.480Z',
                   },
                 },
               },
@@ -81,7 +82,8 @@ export const standard = defineScenario<Prisma.TeacherToGroupCreateArgs>({
     },
     two: {
       data: {
-        updatedAt: '2022-11-28T13:04:43.232Z',
+        assignment: 'ControlWork',
+        updatedAt: '2022-12-05T16:35:00.480Z',
         teacher: {
           create: {
             name: 'String',
@@ -89,7 +91,7 @@ export const standard = defineScenario<Prisma.TeacherToGroupCreateArgs>({
             middlename: 'String',
             user: {
               create: {
-                email: 'String5777721',
+                email: 'String3417868',
                 hashedPassword: 'String',
                 salt: 'String',
               },
@@ -99,19 +101,19 @@ export const standard = defineScenario<Prisma.TeacherToGroupCreateArgs>({
         group: {
           create: {
             name: 'String',
-            semester: 7131481,
-            updatedAt: '2022-11-28T13:04:43.232Z',
+            semester: 5959963,
+            updatedAt: '2022-12-05T16:35:00.480Z',
             course: {
               create: {
                 name: 'String',
                 description: 'String',
-                semester: 922333,
-                updatedAt: '2022-11-28T13:04:43.232Z',
+                semester: 8367990,
+                updatedAt: '2022-12-05T16:35:00.480Z',
                 academicPlan: {
                   create: {
                     name: 'String',
                     description: 'String',
-                    updatedAt: '2022-11-28T13:04:43.232Z',
+                    updatedAt: '2022-12-05T16:35:00.480Z',
                   },
                 },
               },
@@ -120,12 +122,12 @@ export const standard = defineScenario<Prisma.TeacherToGroupCreateArgs>({
               create: {
                 name: 'String',
                 description: 'String',
-                updatedAt: '2022-11-28T13:04:43.232Z',
+                updatedAt: '2022-12-05T16:35:00.480Z',
                 faculty: {
                   create: {
                     name: 'String',
                     description: 'String',
-                    updatedAt: '2022-11-28T13:04:43.232Z',
+                    updatedAt: '2022-12-05T16:35:00.480Z',
                   },
                 },
               },
@@ -136,17 +138,17 @@ export const standard = defineScenario<Prisma.TeacherToGroupCreateArgs>({
           create: {
             name: 'String',
             description: 'String',
-            updatedAt: '2022-11-28T13:04:43.232Z',
+            updatedAt: '2022-12-05T16:35:00.480Z',
             department: {
               create: {
                 name: 'String',
                 description: 'String',
-                updatedAt: '2022-11-28T13:04:43.232Z',
+                updatedAt: '2022-12-05T16:35:00.480Z',
                 faculty: {
                   create: {
                     name: 'String',
                     description: 'String',
-                    updatedAt: '2022-11-28T13:04:43.232Z',
+                    updatedAt: '2022-12-05T16:35:00.480Z',
                   },
                 },
               },
