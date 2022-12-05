@@ -16,6 +16,7 @@ export const schema = gql`
     ControlWork
     LaboratoryWork
     Seminar
+    Module
   }
 
   type Query {
