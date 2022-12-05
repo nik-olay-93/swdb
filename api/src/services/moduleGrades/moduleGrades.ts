@@ -24,15 +24,47 @@ export const createModuleGrade: MutationResolvers['createModuleGrade'] = ({
   })
 }
 
-export const updateModuleGrade: MutationResolvers['updateModuleGrade'] = ({
-  id,
-  input,
-}) => {
-  return db.moduleGrade.update({
-    data: input,
-    where: { id },
-  })
-}
+export const updateModuleGrade: MutationResolvers['updateModuleGrade'] =
+  async ({ id, input }) => {
+    const role = context?.currentUser?.roles
+
+    const mg = await db.moduleGrade.findUnique({
+      where: { id },
+      select: {
+        module: {
+          select: {
+            Subject: true,
+          },
+        },
+        student: {
+          select: {
+            group: true,
+          },
+        },
+      },
+    })
+
+    const ttg = await db.teacherToGroup.findMany({
+      where: {
+        teacherId: context?.currentUser?.id,
+        groupId: mg.student.group.id,
+        subjectId: mg.module.Subject.id,
+      },
+    })
+
+    if (
+      role === 'TEACHER' &&
+      (ttg === undefined ||
+        ttg.findIndex((t) => t.assignment.some((a) => a === 'Module')) === -1)
+    ) {
+      throw new Error('You are not allowed to update this module grade')
+    }
+
+    return db.moduleGrade.update({
+      data: input,
+      where: { id },
+    })
+  }
 
 export const deleteModuleGrade: MutationResolvers['deleteModuleGrade'] = ({
   id,

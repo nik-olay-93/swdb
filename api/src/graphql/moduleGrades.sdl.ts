@@ -32,7 +32,7 @@ export const schema = gql`
     updateModuleGrade(
       id: String!
       input: UpdateModuleGradeInput!
-    ): ModuleGrade! @requireAuth
+    ): ModuleGrade! @requireAuth(roles: ["ADMIN", "TEACHER"])
     deleteModuleGrade(id: String!): ModuleGrade! @requireAuth
   }
 `
