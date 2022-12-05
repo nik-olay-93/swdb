@@ -16,6 +16,16 @@ export const teacherToGroup: QueryResolvers['teacherToGroup'] = ({ id }) => {
   })
 }
 
+export const myAssignments: QueryResolvers['myAssignments'] = () => {
+  return db.teacherToGroup.findMany({
+    where: {
+      teacher: {
+        userId: context.currentUser.id,
+      },
+    },
+  })
+}
+
 export const createTeacherToGroup: MutationResolvers['createTeacherToGroup'] =
   ({ input }) => {
     return db.teacherToGroup.create({

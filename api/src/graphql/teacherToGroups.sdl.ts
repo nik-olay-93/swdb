@@ -21,6 +21,7 @@ export const schema = gql`
   type Query {
     teacherToGroups: [TeacherToGroup!]! @requireAuth
     teacherToGroup(id: String!): TeacherToGroup @requireAuth
+    myAssignments: [TeacherToGroup!]! @requireAuth(roles: ["TEACHER"])
   }
 
   input CreateTeacherToGroupInput {

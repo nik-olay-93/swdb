@@ -4,7 +4,6 @@ import type {
   GroupRelationResolvers,
 } from 'types/graphql'
 
-import { requireAuth } from 'src/lib/auth'
 import { db } from 'src/lib/db'
 
 export const groups: QueryResolvers['groups'] = () => {
@@ -18,8 +17,6 @@ export const group: QueryResolvers['group'] = ({ id }) => {
 }
 
 export const myGroups: QueryResolvers['myGroups'] = () => {
-  requireAuth({ roles: 'TEACHER' })
-
   return db.group.findMany({
     where: {
       teachers: {
