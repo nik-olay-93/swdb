@@ -16,13 +16,30 @@ export const moduleGrade: QueryResolvers['moduleGrade'] = ({ id }) => {
   })
 }
 
-export const createModuleGrade: MutationResolvers['createModuleGrade'] = ({
-  input,
-}) => {
-  return db.moduleGrade.create({
-    data: input,
-  })
-}
+export const createModuleGrade: MutationResolvers['createModuleGrade'] =
+  async ({ input }) => {
+    const teacherId = context?.currentUser?.id
+
+    const ttg = await db.teacherToGroup.findMany({
+      where: {
+        teacherId,
+        groupId: input.studentId,
+        subjectId: input.moduleId,
+      },
+    })
+
+    if (
+      context?.currentUser?.roles === 'TEACHER' &&
+      (ttg === undefined ||
+        ttg.findIndex((t) => t.assignment.some((a) => a === 'Module')) === -1)
+    ) {
+      throw new Error('You are not allowed to create this module grade')
+    }
+
+    return db.moduleGrade.create({
+      data: input,
+    })
+  }
 
 export const updateModuleGrade: MutationResolvers['updateModuleGrade'] =
   async ({ id, input }) => {

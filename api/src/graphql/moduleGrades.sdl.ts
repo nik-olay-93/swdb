@@ -28,7 +28,8 @@ export const schema = gql`
   }
 
   type Mutation {
-    createModuleGrade(input: CreateModuleGradeInput!): ModuleGrade! @requireAuth
+    createModuleGrade(input: CreateModuleGradeInput!): ModuleGrade!
+      @requireAuth(roles: ["ADMIN", "TEACHER"])
     updateModuleGrade(
       id: String!
       input: UpdateModuleGradeInput!
