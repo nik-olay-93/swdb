@@ -20,11 +20,26 @@ export const createModuleGrade: MutationResolvers['createModuleGrade'] =
   async ({ input }) => {
     const teacherId = context?.currentUser?.id
 
+    const module = await db.module.findUnique({
+      where: { id: input.moduleId },
+      select: {
+        subjectId: true,
+      },
+    })
+    const subjectId = module?.subjectId
+    const student = await db.student.findUnique({
+      where: { id: input.studentId },
+      select: {
+        groupId: true,
+      },
+    })
+    const groupId = student?.groupId
+
     const ttg = await db.teacherToGroup.findMany({
       where: {
         teacherId,
-        groupId: input.studentId,
-        subjectId: input.moduleId,
+        subjectId,
+        groupId,
       },
     })
 
