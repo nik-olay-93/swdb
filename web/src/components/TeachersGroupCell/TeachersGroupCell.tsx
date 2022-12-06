@@ -6,6 +6,8 @@ import {
 
 import type { CellFailureProps, CellSuccessProps } from '@redwoodjs/web'
 
+import RefetchContext from 'src/lib/RefetchContext'
+
 import SubjectCMs from '../SubjectCms/SubjectCms'
 import SubjectLRs from '../SubjectLrs/SubjectLrs'
 import SubjectModules from '../SubjectModulesInfo/SubjectModulesInfo'
@@ -106,42 +108,43 @@ export const Success = ({
     assignmentsBySubject.some((a) => a === assignment)
 
   return (
-    <div className="flex flex-grow flex-col items-start gap-2">
-      <h1 className="text-3xl font-bold">{group.name}</h1>
-      <span className="text-2xl font-semibold">{subject.name}</span>
+    <RefetchContext.Provider value={refetch}>
+      <div className="flex flex-grow flex-col items-start gap-2">
+        <h1 className="text-3xl font-bold">{group.name}</h1>
+        <span className="text-2xl font-semibold">{subject.name}</span>
 
-      {hasAccess('Module') && (
-        <>
-          <h2 className="text-2xl font-bold">Модули</h2>
-          <SubjectModules
-            editable
-            students={group.students}
-            subject={subject}
-            refetch={refetch}
-          />
-        </>
-      )}
+        {hasAccess('Module') && (
+          <>
+            <h2 className="text-2xl font-bold">Модули</h2>
+            <SubjectModules
+              editable
+              students={group.students}
+              subject={subject}
+            />
+          </>
+        )}
 
-      {hasAccess('ControlWork') && (
-        <>
-          <h2 className="text-2xl font-bold">Контрольные мероприятия</h2>
-          <SubjectCMs students={group.students} subject={subject} />
-        </>
-      )}
+        {hasAccess('ControlWork') && (
+          <>
+            <h2 className="text-2xl font-bold">Контрольные мероприятия</h2>
+            <SubjectCMs students={group.students} subject={subject} />
+          </>
+        )}
 
-      {hasAccess('LaboratoryWork') && (
-        <>
-          <h2 className="text-2xl font-bold">Лабораторные работы</h2>
-          <SubjectLRs students={group.students} subject={subject} />
-        </>
-      )}
+        {hasAccess('LaboratoryWork') && (
+          <>
+            <h2 className="text-2xl font-bold">Лабораторные работы</h2>
+            <SubjectLRs students={group.students} subject={subject} />
+          </>
+        )}
 
-      {hasAccess('Seminar') && (
-        <>
-          <h2 className="text-2xl font-bold">Семинарские занятия</h2>
-          <SubjectSems students={group.students} subject={subject} />
-        </>
-      )}
-    </div>
+        {hasAccess('Seminar') && (
+          <>
+            <h2 className="text-2xl font-bold">Семинарские занятия</h2>
+            <SubjectSems students={group.students} subject={subject} />
+          </>
+        )}
+      </div>
+    </RefetchContext.Provider>
   )
 }

@@ -17,11 +17,12 @@ import {
 import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 
+import { useRefetch } from 'src/lib/RefetchContext'
+
 export interface SubjectModulesProps {
   students: FindSubjectInfoQuery['groupInfo']['students']
   subject: FindSubjectInfoQuery['subjectInfo']
   editable?: boolean
-  refetch?: () => void
 }
 
 const CREATE_MODULE = gql`
@@ -51,9 +52,9 @@ const SubjectModules = ({
   students,
   subject,
   editable = false,
-  refetch,
 }: SubjectModulesProps) => {
   const formMethods = useForm()
+  const refetch = useRefetch()
 
   const [create] = useMutation<
     CreateModuleGradeMutation,
