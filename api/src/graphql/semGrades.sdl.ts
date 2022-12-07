@@ -33,9 +33,10 @@ export const schema = gql`
   }
 
   type Mutation {
-    createSemGrade(input: CreateSemGradeInput!): SemGrade! @requireAuth
+    createSemGrade(input: CreateSemGradeInput!): SemGrade!
+      @requireAuth(roles: ["TEACHER", "ADMIN"])
     updateSemGrade(id: String!, input: UpdateSemGradeInput!): SemGrade!
-      @requireAuth
+      @requireAuth(roles: ["TEACHER", "ADMIN"])
     deleteSemGrade(id: String!): SemGrade! @requireAuth
   }
 `

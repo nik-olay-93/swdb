@@ -183,7 +183,7 @@ const SubjectLRs = ({
                     >
                       <div className="flex flex-row items-center">
                         {img_string && (
-                          <div className="flex-rol flex items-center justify-center">
+                          <div className="flex flex-row items-center justify-center">
                             <img src={img_string} alt={lw.name} />
                           </div>
                         )}
