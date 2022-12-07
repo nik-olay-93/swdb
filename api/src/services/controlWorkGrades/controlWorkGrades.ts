@@ -19,14 +19,83 @@ export const controlWorkGrade: QueryResolvers['controlWorkGrade'] = ({
 }
 
 export const createControlWorkGrade: MutationResolvers['createControlWorkGrade'] =
-  ({ input }) => {
+  async ({ input }) => {
+    const teacherId = context?.currentUser?.id
+
+    const controlWork = await db.controlWork.findUnique({
+      where: { id: input.cmId },
+      select: {
+        subjectId: true,
+      },
+    })
+    const subjectId = controlWork?.subjectId
+    const student = await db.student.findUnique({
+      where: { id: input.studentId },
+      select: {
+        groupId: true,
+      },
+    })
+    const groupId = student?.groupId
+
+    const ttg = await db.teacherToGroup.findMany({
+      where: {
+        teacherId,
+        subjectId,
+        groupId,
+      },
+    })
+
+    if (
+      context?.currentUser?.roles === 'TEACHER' &&
+      (ttg === undefined ||
+        ttg.findIndex((t) => t.assignment.some((a) => a === 'ControlWork')) ===
+          -1)
+    ) {
+      throw new Error('You are not allowed to create this LW grade')
+    }
+
     return db.controlWorkGrade.create({
       data: input,
     })
   }
 
 export const updateControlWorkGrade: MutationResolvers['updateControlWorkGrade'] =
-  ({ id, input }) => {
+  async ({ id, input }) => {
+    const role = context?.currentUser?.roles
+
+    const cwg = await db.controlWorkGrade.findUnique({
+      where: { id },
+      select: {
+        cm: {
+          select: {
+            Subject: true,
+          },
+        },
+        student: {
+          select: {
+            group: true,
+          },
+        },
+      },
+    })
+
+    const ttg = await db.teacherToGroup.findMany({
+      where: {
+        teacherId: context?.currentUser?.id,
+        groupId: cwg.student.group.id,
+        subjectId: cwg.cm.Subject.id,
+      },
+    })
+
+    if (
+      role === 'TEACHER' &&
+      (ttg === undefined ||
+        ttg.findIndex((t) => t.assignment.some((a) => a === 'ControlWork')) ===
+          -1)
+    ) {
+      throw new Error('You are not allowed to update this module grade')
+    }
+
     return db.controlWorkGrade.update({
       data: input,
       where: { id },

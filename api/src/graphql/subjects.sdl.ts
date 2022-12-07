@@ -16,11 +16,13 @@ export const schema = gql`
     maxGrade: Int!
     createdAt: DateTime!
     updatedAt: DateTime!
+    teachers: [TeacherToGroup]!
   }
 
   type Query {
     subjects: [Subject!]! @requireAuth
     subject(id: String!): Subject @requireAuth
+    mySubjects: [Subject!]! @requireAuth(roles: ["TEACHER"])
   }
 
   input CreateSubjectInput {

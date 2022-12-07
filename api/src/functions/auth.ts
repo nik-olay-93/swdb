@@ -33,9 +33,9 @@ export const handler = async (
       // for security reasons you may want to be vague here rather than expose
       // the fact that the email address wasn't found (prevents fishing for
       // valid email addresses)
-      usernameNotFound: 'Username not found',
+      usernameNotFound: 'Пользователь не найден',
       // if the user somehow gets around client validation
-      usernameRequired: 'Username is required',
+      usernameRequired: 'Укажите имя пользователя',
     },
   }
 
@@ -56,12 +56,12 @@ export const handler = async (
     },
 
     errors: {
-      usernameOrPasswordMissing: 'Both username and password are required',
-      usernameNotFound: 'Username ${username} not found',
+      usernameOrPasswordMissing: 'Введите имя пользователя и пароль',
+      usernameNotFound: 'Пользователь ${username} не найден',
       // For security reasons you may want to make this the same as the
       // usernameNotFound error so that a malicious user can't use the error
       // to narrow down if it's the username or password that's incorrect
-      incorrectPassword: 'Incorrect password for ${username}',
+      incorrectPassword: 'Неверный пароль',
     },
 
     // How long a user will remain logged in, in seconds
@@ -82,13 +82,13 @@ export const handler = async (
 
     errors: {
       // the resetToken is valid, but expired
-      resetTokenExpired: 'resetToken is expired',
+      resetTokenExpired: 'Токен сброса пароля устарел',
       // no user was found with the given resetToken
-      resetTokenInvalid: 'resetToken is invalid',
+      resetTokenInvalid: 'Токен сброса пароля недействителен',
       // the resetToken was not present in the URL
-      resetTokenRequired: 'resetToken is required',
+      resetTokenRequired: 'Токен сброса пароля обязателен',
       // new password is the same as the old password (apparently they did not forget it)
-      reusedPassword: 'Must choose a new password',
+      reusedPassword: 'Новый пароль должен отличаться от старого',
     },
   }
 
@@ -128,9 +128,12 @@ export const handler = async (
 
     errors: {
       // `field` will be either "username" or "password"
-      fieldMissing: '${field} is required',
-      usernameTaken: 'Username `${username}` already in use',
+      fieldMissing:
+        'Укажите ${field === "username" ? "имя пользователя" : "пароль"}',
+      usernameTaken: 'Имя пользователя ${username} уже занято',
+      flowNotEnabled: 'Регистрация отключена',
     },
+    enabled: false,
   }
 
   const authHandler = new DbAuthHandler(event, context, {

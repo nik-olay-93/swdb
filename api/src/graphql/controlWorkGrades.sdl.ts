@@ -38,11 +38,11 @@ export const schema = gql`
   type Mutation {
     createControlWorkGrade(
       input: CreateControlWorkGradeInput!
-    ): ControlWorkGrade! @requireAuth
+    ): ControlWorkGrade! @requireAuth(roles: ["TEACHER", "ADMIN"])
     updateControlWorkGrade(
       id: String!
       input: UpdateControlWorkGradeInput!
-    ): ControlWorkGrade! @requireAuth
+    ): ControlWorkGrade! @requireAuth(roles: ["TEACHER", "ADMIN"])
     deleteControlWorkGrade(id: String!): ControlWorkGrade! @requireAuth
   }
 `

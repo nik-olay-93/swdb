@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { GroupsListQuery } from 'types/graphql'
 
-import GroupsListDepartment from '../GroupsListDepartment/GroupsListDepartment'
+import GroupsListDepartment from './GroupsListDepartment'
 
 export interface GroupsListFacultyProps {
   faculty: GroupsListQuery['faculties'][0]

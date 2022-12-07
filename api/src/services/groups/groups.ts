@@ -16,6 +16,23 @@ export const group: QueryResolvers['group'] = ({ id }) => {
   })
 }
 
+export const myGroups: QueryResolvers['myGroups'] = () => {
+  return db.group.findMany({
+    where: {
+      teachers: {
+        some: {
+          teacher: {
+            userId: context.currentUser.id,
+          },
+        },
+      },
+    },
+    orderBy: {
+      name: 'asc',
+    },
+  })
+}
+
 export const createGroup: MutationResolvers['createGroup'] = ({ input }) => {
   return db.group.create({
     data: input,
@@ -51,5 +68,8 @@ export const Group: GroupRelationResolvers = {
         surname: 'asc',
       },
     })
+  },
+  teachers: (_obj, { root }) => {
+    return db.group.findUnique({ where: { id: root?.id } }).teachers()
   },
 }

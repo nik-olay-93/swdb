@@ -84,6 +84,7 @@ model Subject {
   maxGrade        Int              @default(0)
   createdAt       DateTime         @default(now())
   updatedAt       DateTime         @updatedAt
+  teachers        TeacherToGroup[]
 }
 
 model Module {
@@ -135,16 +136,17 @@ model Seminar {
 }
 
 model Group {
-  id           String     @id @default(cuid())
+  id           String           @id @default(cuid())
   name         String
-  course       Course     @relation(fields: [courseId], references: [id])
+  course       Course           @relation(fields: [courseId], references: [id])
   courseId     String
   semester     Int
-  createdAt    DateTime   @default(now())
-  updatedAt    DateTime   @updatedAt
-  department   Department @relation(fields: [departmentId], references: [id])
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+  department   Department       @relation(fields: [departmentId], references: [id])
   departmentId String
   students     Student[]
+  teachers     TeacherToGroup[]
 }
 
 model Student {
@@ -220,5 +222,37 @@ model User {
   salt                String
   resetToken          String?
   resetTokenExpiresAt DateTime?
-  role                Role      @default(USER)
+  roles               Role      @default(USER)
+  Teacher             Teacher?
+}
+
+model Teacher {
+  user       User             @relation(fields: [userId], references: [id])
+  userId     String           @id @unique
+  name       String
+  surname    String
+  middlename String
+  groups     TeacherToGroup[]
+}
+
+enum TeacherAssignment {
+  ControlWork
+  LaboratoryWork
+  Seminar
+  Module
+}
+
+model TeacherToGroup {
+  id         String              @id @default(cuid())
+  teacher    Teacher             @relation(fields: [teacherId], references: [userId])
+  teacherId  String
+  group      Group               @relation(fields: [groupId], references: [id])
+  groupId    String
+  subject    Subject             @relation(fields: [subjectId], references: [id])
+  subjectId  String
+  assignment TeacherAssignment[]
+  createdAt  DateTime            @default(now())
+  updatedAt  DateTime            @updatedAt
+
+  @@unique([teacherId, groupId, subjectId])
 }

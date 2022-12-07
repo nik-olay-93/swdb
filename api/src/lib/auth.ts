@@ -1,3 +1,5 @@
+import { Role } from '@prisma/client'
+
 import type { Decoded } from '@redwoodjs/api'
 import { AuthenticationError, ForbiddenError } from '@redwoodjs/graphql-server'
 
@@ -27,7 +29,7 @@ export const getCurrentUser = async (session: Decoded) => {
 
   return await db.user.findUnique({
     where: { id: session.id },
-    select: { id: true, email: true, role: true },
+    select: { id: true, email: true, roles: true },
   })
 }
 
@@ -44,7 +46,7 @@ export const isAuthenticated = (): boolean => {
  * When checking role membership, roles can be a single value, a list, or none.
  * You can use Prisma enums too (if you're using them for roles), just import your enum type from `@prisma/client`
  */
-type AllowedRoles = string | string[] | undefined
+type AllowedRoles = Role | Role[] | undefined
 
 /**
  * Checks if the currentUser is authenticated (and assigned one of the given roles)
@@ -59,7 +61,7 @@ export const hasRole = (roles: AllowedRoles): boolean => {
     return false
   }
 
-  const currentUserRoles = context.currentUser?.role
+  const currentUserRoles = context.currentUser?.roles
 
   if (typeof roles === 'string') {
     if (typeof currentUserRoles === 'string') {

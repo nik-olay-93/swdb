@@ -10,11 +10,13 @@ export const schema = gql`
     department: Department!
     departmentId: String!
     students: [Student]!
+    teachers: [TeacherToGroup]!
   }
 
   type Query {
     groups: [Group!]! @requireAuth
     group(id: String!): Group @requireAuth
+    myGroups: [Group!]! @requireAuth(roles: ["TEACHER"])
   }
 
   input CreateGroupInput {

@@ -38,11 +38,11 @@ export const schema = gql`
   type Mutation {
     createLaboratoryWorkGrade(
       input: CreateLaboratoryWorkGradeInput!
-    ): LaboratoryWorkGrade! @requireAuth
+    ): LaboratoryWorkGrade! @requireAuth(roles: ["ADMIN", "TEACHER"])
     updateLaboratoryWorkGrade(
       id: String!
       input: UpdateLaboratoryWorkGradeInput!
-    ): LaboratoryWorkGrade! @requireAuth
+    ): LaboratoryWorkGrade! @requireAuth(roles: ["ADMIN", "TEACHER"])
     deleteLaboratoryWorkGrade(id: String!): LaboratoryWorkGrade! @requireAuth
   }
 `
