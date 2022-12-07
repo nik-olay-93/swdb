@@ -131,7 +131,7 @@ export const Success = ({
         {hasAccess('ControlWork') && (
           <>
             <h2 className="text-2xl font-bold">Контрольные мероприятия</h2>
-            <SubjectCMs students={group.students} subject={subject} />
+            <SubjectCMs editable students={group.students} subject={subject} />
           </>
         )}
 

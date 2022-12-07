@@ -90,7 +90,7 @@ const SubjectLRs = ({
             (acc, student) => [...acc, ...student.LaboratoryWorkGrade],
             [] as LaboratoryWorkGrade[]
           )
-          .find((mg) => mg.id === key).grade === grade
+          .find((mg) => mg.id === key)?.grade === grade
       ) {
         return Promise.resolve()
       }
