@@ -186,9 +186,9 @@ const SubjectCMs = ({
                       key={cw.id}
                       className="border-r border-gray-500 p-2 last:border-none"
                     >
-                      <div className="flex flex-row items-center">
+                      <div className="flex flex-row items-center justify-center">
                         {img && (
-                          <div className="flex-rol flex items-center justify-center">
+                          <div className="flex flex-row items-center justify-center">
                             <img src={img} alt={cw.name} />
                           </div>
                         )}
