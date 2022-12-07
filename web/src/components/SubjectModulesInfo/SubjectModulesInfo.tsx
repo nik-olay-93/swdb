@@ -68,7 +68,7 @@ const SubjectModules = ({
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     const promises = Object.entries(data).map(([key, grade]) => {
-      if (!grade) return Promise.resolve
+      if (!grade) return Promise.resolve()
       if (key.includes('-')) {
         const [studentId, moduleId] = key.split('-')
         return create({
@@ -100,9 +100,9 @@ const SubjectModules = ({
         },
       })
     })
-    Promise.all(promises).then(() => {
+    Promise.all(promises).then(async () => {
+      await refetch()
       formMethods.reset()
-      refetch()
     })
   }
 

@@ -108,7 +108,11 @@ export const Success = ({
     assignmentsBySubject.some((a) => a === assignment)
 
   return (
-    <RefetchContext.Provider value={refetch}>
+    <RefetchContext.Provider
+      value={async () => {
+        await refetch()
+      }}
+    >
       <div className="flex flex-grow flex-col items-start gap-2">
         <h1 className="text-3xl font-bold">{group.name}</h1>
         <span className="text-2xl font-semibold">{subject.name}</span>
@@ -134,7 +138,7 @@ export const Success = ({
         {hasAccess('LaboratoryWork') && (
           <>
             <h2 className="text-2xl font-bold">Лабораторные работы</h2>
-            <SubjectLRs students={group.students} subject={subject} />
+            <SubjectLRs editable students={group.students} subject={subject} />
           </>
         )}
 
